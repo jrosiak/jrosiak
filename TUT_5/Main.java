@@ -19,7 +19,7 @@ public class Main {
         //Adding products
         Product p1 = new Product("Yogurt", 3.5, 200678);
         Product p2 = new Product("Milk", 5, 230678);
-        Product p3 = new Product("Ham", 9.5, 270678, 127);
+        Product p3 = new Product("Ham", 9, 270678, 127);
         p1.changeAmount(5);
         p2.changePrice(4.6);
 
@@ -33,15 +33,42 @@ public class Main {
         c.addProduct(p1);
         c.addProduct(p2);
         c.addProduct(p3);
-
+        c1.addProduct(p1);
+        c2.addProduct(p3);
         System.out.println();
         System.out.println("There are "+c.getNumberOfProducts()+" products in this shop");
 
+        //Creating 3 different baskets
         Basket b=new Basket();
         Basket b1=new Basket(u1);
         Basket b2=new Basket(u2, allProducts);
+        System.out.println("Successfully created baskets!");
 
-        b2.addProduct(p1);
+        //Adding and iterating
+            b2.addProduct(p3);
+            for (Product product : allProducts) {
+                if (product.getProductCode() != p3.getProductCode()) {
+                    //adding...
+                } else {
+                    c.removeProduct(p3);
+                    System.out.println(p3.getName()+" added to the basket!");
+                    break;
+                }
+            }
+
         b2.addProduct(p2);
+        for (Product product : allProducts) {
+            if (product.getProductCode() != p2.getProductCode()) {
+                //adding...
+            } else {
+                c.removeProduct(p2);
+                System.out.println(p2.getName()+ " added to the basket!");
+                break;
+            }
+        }
+
+
+        b2.buy();
+
     }
 }

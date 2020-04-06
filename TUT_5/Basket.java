@@ -24,14 +24,24 @@ public class Basket {
         if(itemsInBasket.size()>=products.size()){
             throw new IllegalArgumentException("Cannot add more products");
         }
-        products.add(product);
+        itemsInBasket.add(product);
     }
 
     public void removeProduct(Product product) {
-        products.remove(product);
+        itemsInBasket.remove(product);
     }
 
-    public void buy(){
+    public int getNumberOfProducts(){ return itemsInBasket.size(); }
+
+    public double buy() {
+        double total = 0;
+        for (Product product: itemsInBasket) {
+            total += product.price;
+        }
+        System.out.println("Total for your groceries will be " +total);
+        return total;
+    }
 
     }
-}
+
+
