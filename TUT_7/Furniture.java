@@ -13,14 +13,14 @@ public class Furniture extends Room{
     }
 
     public double getPrice() {
-        return price;
+        return price - (price * vat);
     }
 
     public double getPrice(boolean withVat) {
         if (withVat) {
-            return price - (price * vat);
+            return price;
         }
-        return price;
+        return price - (price * vat);
     }
 
     @Override
