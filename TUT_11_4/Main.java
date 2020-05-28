@@ -4,10 +4,15 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-
-        readNumber();
+        
+     try {
+            readNumber();
+        }
+        catch (NegativeNumberException e){
+            System.out.println(e.getMessage());
+        }
         fillArray();
-
+        
     }
 
     static Scanner input = new Scanner(System.in);
